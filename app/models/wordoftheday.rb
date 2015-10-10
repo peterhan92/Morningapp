@@ -1,8 +1,14 @@
 class Wordoftheday
 	def initialize
-		@dictionary = Nokogiri::HTML(open('http://www.reference.com/')).css('div.word-section h2')
-		@wotd_title = @dictionary.css('div.word-section h2')
-		@wotd = @dictionary.css('div.word-section a.wotd')
-		@wotd_txt = @dictionary.css('div.word-section a.wotd_txt')
+		@url = "http://dictionary.reference.com/"
+		@dictionary = Nokogiri::HTML(open(@url))
+	end
+
+	def word
+		@word = @dictionary.css('div.word-section a.wotd').text
+	end
+
+	def definition
+		@definition = @dictionary.css('div.word-section a.wotd_txt').text
 	end
 end

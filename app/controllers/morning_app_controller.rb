@@ -1,6 +1,6 @@
 class MorningAppController < ApplicationController
 
 	def welcome
-		binding.pry
+		@wotd = Wordoftheday.new
 	end
 end
