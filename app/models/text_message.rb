@@ -1,9 +1,10 @@
-class Textmessage
-	
-	@keys = YAML.load_file('')
-	account_sid = @keys['ACCOUNT_SID']
-	auth_token = @keys['AUTH_TOKEN']
-	@client = Twilio::REST::Client.new account_sid, auth_token
+class Textmessage <ActiveRecord::Base
+
+	def initialize
+		account_sid = ENV['ACCOUNT_SID']
+		auth_torken = ENV['AUTH_TOKEN']
+		@client = Twilio::REST::Client.new account_sid, auth_token
+	end
 
 	def send_msg(number, msg)
 	    puts "Sending a message to #{number} : \'#{msg}\'"
