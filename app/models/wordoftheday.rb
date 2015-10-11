@@ -1,7 +1,7 @@
 class Wordoftheday
 	def initialize
-		@url = "http://dictionary.reference.com/"
-		@dictionary = Nokogiri::HTML(open(@url))
+		url = "http://dictionary.reference.com/"
+		@dictionary = Nokogiri::HTML(open(url))
 	end
 
 	def word

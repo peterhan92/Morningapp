@@ -1,4 +1,15 @@
 <center>
-	<h1>Word of the day: <%= @wotd.word %></h1>
-	<h3><%= @wotd.definition %></h3>
+	<br><br><br><br><br><br><br>
+	<h1><span>Morning App</span></h1>
+	<h3><span>FLATIRON SCHOOL</span></h3><br><br>
+
+	<h2>Word of the day: <%= @wotd.word.capitalize %></h2>
+	<h3>"<%= @wotd.definition %>"</h3><br>
+
+		<%= form_tag("morning_app/text") do %>
+		<%= label_tag("number", "Enter Phone Number: ") %>
+		<%= text_field_tag("number") %><br><br>
+
+		<%= submit_tag "Submit" %>
+	<% end %>
 </center>

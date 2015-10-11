@@ -1,4 +1,3 @@
-
 class Textmessage
 	def initialize(number, msg)
 		account_sid = ENV['ACCOUNT_SID']
