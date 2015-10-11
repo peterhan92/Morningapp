@@ -1,9 +1,11 @@
 class MorningAppController < ApplicationController
 
-	def welcome
+	def main
 		@wotd = Wordoftheday.new
-		# @text = Textmessage.new(number, msg)
 	end
 
+	def text
+		@phone_number = params["number"]
+	end
 
 end
