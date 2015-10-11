@@ -6,6 +6,8 @@ class MorningAppController < ApplicationController
 
 	def text
 		@phone_number = params["number"]
+		Phonenumber.create(:number => params["number"])
+		render('/morning_app/text')
 	end
 
 end

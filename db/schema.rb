@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20151011145852) do
 
   create_table "phonenumbers", force: :cascade do |t|
-    t.integer  "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "number",     limit: 5
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
 end
