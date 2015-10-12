@@ -1,17 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	<title>MORNING FLATIRON SCHOOL</title>
+</head>
+<body>
 <center>
 	<br><br><br><br>
-	<h1><span>Morning</span></h1>
+	<h1><span>Good Morning</span></h1>
 	<h3><span>FLATIRON SCHOOL</span></h3><br>
 
 	<h2>Word of the day: <%= @wotd.word.capitalize %></h2>
 	<h3>"<%= @wotd.definition %>"</h3><br>
+	<button class="pure-button pure-button-active">
+<i class="fa fa-book"></i> Word of the Day </button><br>
 
 	<h2>Subway Status</h2>
 	<% @mta.each do |statuses| %>
 		<% statuses.each do |status| %>
-			<%= status%>
+	<%= status%>
 		<% end %><br>
 	<% end %><br>
+	
+
+
+
+	<button class="pure-button pure-button-active">
+    <i class="fa fa-subway"></i> 123 </button><br>
+<button class="pure-button pure-button-active">
+ <i class="fa fa-subway"></i> 456 </button><br>
+<button class="pure-button pure-button-active">
+<i class="fa fa-subway"></i> 7 </button><br>
+<button class="pure-button pure-button-active">
+<i class="fa fa-subway"></i> ACE </button><br>
+<button class="pure-button pure-button-active">
+<i class="fa fa-subway"></i> BDFM </button><br>
+<button class="pure-button pure-button-active">
+<i class="fa fa-subway"></i> G </button><br>
+<button class="pure-button pure-button-active">
+<i class="fa fa-subway"></i> JZ </button><br>
+<button class="pure-button pure-button-active">
+<i class="fa fa-subway"></i> L </button><br>
+<button class="pure-button pure-button-active">
+<i class="fa fa-subway"></i> NQR </button><br>
+<button class="pure-button pure-button-active">
+<i class="fa fa-subway"></i> S </button><br>
+<button class="pure-button pure-button-active">
+<i class="fa fa-subway"></i> SIR </button><br><br>
 
 		<%= form_tag("morning_app/text") do %>
 		<%= label_tag("number", "Enter Phone Number: ") %>
@@ -20,3 +57,5 @@
 		<%= submit_tag "Send Text Message" %>
 	<% end %>
 </center>
+</body>
+</html>
