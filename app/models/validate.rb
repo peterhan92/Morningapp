@@ -11,3 +11,4 @@ class Validate
 		false
 	end
 end
+
