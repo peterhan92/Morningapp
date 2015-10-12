@@ -26,6 +26,8 @@ gem 'figaro'
 gem 'twilio-ruby'
 # check for valid phonenumber
 gem 'phonelib'
+# rest client
+gem 'rest-client'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,10 +1,14 @@
 <center>
-	<br><br><br><br>
-	<h1><span>Morning</span></h1>
-	<h3><span>FLATIRON SCHOOL</span></h3><br>
+	<br><br>
+	<h1>Morning</h1>
+	<h3>FLATIRON SCHOOL</h3><br>
 
-	<h2>Word of the day: <%= @wotd.word.capitalize %></h2>
-	<h3>"<%= @wotd.definition %>"</h3><br>
+	<h2>Word of the day</h2>
+	<%= @wod_display %>"<br>
+
+
+	<h2>Quote</h2>
+	"<%= @quote.content %>" <br> - <%= @quote.person%><br><br><br>
 
 	<h2>Subway Status</h2>
 	<% @mta.each do |statuses| %>
@@ -12,6 +16,8 @@
 			<%= status%>
 		<% end %><br>
 	<% end %><br>
+
+	<%= flash[:success].html_safe unless flash[:success].blank? %>
 
 		<%= form_tag("morning_app/text") do %>
 		<%= label_tag("number", "Enter Phone Number: ") %>
