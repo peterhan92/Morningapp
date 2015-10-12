@@ -1,30 +1,22 @@
+require 'pry'
 require 'nokogiri'
 require 'open-uri'
-
 class	Mta
 	def initialize
 		mta = "http://web.mta.info/status/serviceStatus.txt"
-		@doc = Nokogiri::HTML(open(mta)) 
+		@mta = Nokogiri::HTML(open(mta)) 
 	end
 
-	def name
-    @doc.xpath("//name").collect do |name|
-      name.children.text
-    end
+	def subway
+    @mta.css('line name').map {|name| name.text}[0...10]
   end
 
   def status
-    @doc.xpath("//status").collect do |s|
-      s.children.text
-    end
+    @mta.css('line status').map {|name| name.text}[0...10]
   end
 
-  def output
-    name.zip(status)
-  end
-
-  def subway
-    output[0..10]
+  def subway_status
+    subway.zip(status)
   end
 
 end
