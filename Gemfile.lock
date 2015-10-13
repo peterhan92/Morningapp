@@ -272,6 +272,8 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  json
+  nokogiri
   pg
   phonelib
   pry

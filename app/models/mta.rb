@@ -16,7 +16,8 @@ class	Mta
   end
 
   def subway_status
-    subway.zip(status)
+    Hash[subway.zip(status)] 
+    # subway.zip(status)
   end
 
 end
