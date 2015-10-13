@@ -1,10 +1,9 @@
 <center>
-	<br><br>
 	<h1>Morning</h1>
 	<h3>FLATIRON SCHOOL</h3><br>
 
 	<h2>Word of the day</h2>
-	<%= @wotd_text %><br>
+	<%= @wotd.word %> - <%= @wotd.definition %><br>
 
 
 	<h2>Quote</h2>
@@ -13,11 +12,10 @@
 	<h2>Weather</h2>
 	<%= @weather.location %><br>
 	<%= @weather.sky %> <%= @weather.temperature %>
+
 	<h2>Subway Status</h2>
-	<% @mta.subway_status.each do |statuses| %>
-		<% statuses.each do |status| %>
-			<%= status%>
-		<% end %><br>
+	<% @mta.subway_status.each do |subway, status| %>
+		<%= subway %> <%= status %><br>
 	<% end %><br>
 
 	<%= flash[:success].html_safe unless flash[:success].blank? %>
