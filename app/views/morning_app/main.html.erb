@@ -1,7 +1,7 @@
 <center>
 	<h1>Morning Text</h1>
-	<h3>FLATIRON SCHOOL</h3><br>
-	
+	<h3>FLATIRON SCHOOL</h3>
+
 	<%= form_tag("morning_app/text") do %>
 	<h2><input type="checkbox" name="wotd" value="1">Word of the day</h2>
 	<%= @wotd.word %> - <%= @wotd.definition %><br>
@@ -20,7 +20,7 @@
 		<% i += 1 %>
 	<% end %><br>
 
-	<%= flash[:success].html_safe unless flash[:success].blank? %>
+	<%= flash[:success].html_safe unless flash[:success].blank? %><br>
 
 		<%= label_tag("number", "Enter Phone Number: ") %>
 		<%= text_field_tag("number") %><br><br>
