@@ -1,29 +1,79 @@
-<center>
-	<h1>Morning Text</h1>
-	<h3>FLATIRON SCHOOL</h3>
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="main.css">
+	</head>
 
-	<%= form_tag("morning_app/text") do %>
+	<body>
+	<video autoplay loop id="video-background" muted>
+  	<source src="http://beta.mattgrossdesign.com/sites/default/files/wood%20autumn-HD.mp4" type="video/mp4">
+	</video>
 
-	<h2><input type="checkbox" name="wotd" value="<%= @wotd_text %>">Word of the day</h2>
-	<%= @wotd.word %> - <br> <%= @wotd.definition %><br>
+		<div class="top">
+					<center>
+		<div class="logo">
+					<h1>Morning Text</h1>
+			<h3>Flatiron School</h3>
 
-	<h2><input type="checkbox" name="quote" value="<%= @quote_text %>">Quote</h2>
-	"<%= @quote.content %>" <br> - <%= @quote.person%><br>
-	
-	<h2><input type="checkbox" name="weather" value="<%= @weather_text %>">Weather</h2>
-	<%= @weather.location %><br>
-	<%= @weather.sky %> <%= @weather.temperature %>
+		</div>
+		</center>
+		<h4>We have taken all the fun out of searching the Web for You. We understand you like searching every website on your own. Just in case you dont we have done the hard work for you. We'll even text it to you every morning. Select what you want to see every morning, enter your 7 digit phone number. We cover the rest.<br><br><br></h4>
 
-	<h2>Subway Status</h2>
-	<% @mta.subway_status.each do |subway, status| %>
-		<input type="checkbox" name="<%= subway%>" value="<%= subway %> <%= status%> "><%= subway %> <%= status %><br>
-	<% end %><br>
+		</div>
+		
+		<div id="main-container" class="container-fluid">
+			<div class="row">
+				<%= form_tag("morning_app/text") do %>
 
-	<%= flash[:success].html_safe unless flash[:success].blank? %><br>
+				<div id="wotd" class="col-xs-3">
+				<i class="fa fa-graduation-cap fa-3x">Today's Word</i><br><br>
+					<strong>
+						Thanks to Dictionary.com we can now make you smarter day by day. We'll send you the word of the day and it's definition much like below. Now it's up to you to use it. Click below to add it to your daily dose.<br><br>
+					</strong>
+					<input type="checkbox" name="wotd" value="<%= @wotd_text %>"> <i class="fa fa-graduation-cap"></i>	<%= @wotd.word %> - <%=@wotd.definition %><br>
+				</div>
+				
+				<div id="qotd" class="col-xs-3">
+				<i class="fa fa-book fa-3x">Today's Quote</i><br><br>
+					<strong>
+						Need that daily motivation to inspire you and help conquer the day. Well we've got you covered. We've taken the relentless Brainyquote searching and provide you with today's pick just like below. Click below to add it to your daily dose.<br>
+					</strong>
+					<input type="checkbox" name="quote" value="<%= @quote_text %>"> <i class="fa fa-book"></i>
+					"<%= @quote.content %>" -<%= @quote.person%><br>
+				</div>
 
-		<%= label_tag("number", "Enter Phone Number: ") %>
-		<%= text_field_tag("number") %><br><br>
+			  <div id="weather" class="col-xs-3">
+				<i class="fa fa-cloud fa-3x">Weather</i><br><br>
+					<strong>
+						Are you wondering if you need an umbrella but dont want to ask google or siri? Well neither do we. Wonder no more! We've taken today's weather and sent it right to you! Click below to add it to your daily dose.<br><br>
+					</strong>
+					<input type="checkbox" name="weather" value="<%= @weather_text %>"> <i class="fa fa-cloud"></i>
+					<%= @weather.location %><br>
+					<%= @weather.sky %> <%= @weather.temperature %><br>
+				</div>
 
-		<%= submit_tag "Send Text Message" %>
-	<% end %>
-</center>
+				<div id="subway" class="col-xs-3">
+				<i class="fa fa-subway fa-3x">Subway Status</i><br><br>
+						<strong>
+							Do all those subway delays catch you by surprise? Would you like to see how your train is behaving without having to also know about the entire MTA system? Well wouldn't you know it we have got you covered! We will even send it right to you every morning. You can select one particular line or alls-the-trains! Click below to add it to your daily dose.<br><br>
+						</strong>
+						<% @mta.subway_status.each do |subway, status| %>
+							<input type="checkbox" name="<%= subway%>" value="<%= subway %> <%= status%> "> <i class="fa fa-subway"></i> <%= subway %> <%= status %><br>
+						<% end %>
+					</div>
+
+				<center id="phone">
+				<%= flash[:success].html_safe unless flash[:success].blank? %><br>
+					<i class="fa fa-phone-square fa-lg">Phone Number:</i>
+					<%= text_field_tag("number") %><br><br>
+					 <%= submit_tag "Send Text Message", class: "pure-button pure-button-primary" %>
+				<% end %>
+				</center>
+
+			</div>
+		</div>
+	</body>
+</html>
