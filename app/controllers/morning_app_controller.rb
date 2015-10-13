@@ -10,11 +10,6 @@ class MorningAppController < ApplicationController
 
 		@weather = Nycweather.new
 		@weather_text = "Weather in #{@weather.location}: #{@weather.sky} #{@weather.temperature}"
-
-		# session['wotd'] = @wotd_text
-		# session['quote'] = @quote_text
-		# session['weather'] = @weather_text
-
 	end
 
 	def text
