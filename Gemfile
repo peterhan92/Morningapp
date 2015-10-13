@@ -28,6 +28,10 @@ gem 'twilio-ruby'
 gem 'phonelib'
 # rest client
 gem 'rest-client'
+# json
+gem 'json'
+# nokogiri
+gem 'nokogiri'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
