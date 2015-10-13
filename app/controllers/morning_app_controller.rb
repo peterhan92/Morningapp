@@ -25,8 +25,6 @@ class MorningAppController < ApplicationController
 		if valid 
 			Phonenumber.create(:number => params["number"])
 			Textmessage.new(params["number"], "*** #{session['wotd']} *** #{session['quote']} *** #{session['weather']} *** #{session['mta']}")
-			# Textmessage.new(params["number"], session['quote'])
-			# Textmessage.new(params["number"], session['weather'])
 			render('/morning_app/text')
 		else
 			flash[:success] = "<b>Please Enter Valid Phone Number</b>"

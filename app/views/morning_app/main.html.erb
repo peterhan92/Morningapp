@@ -1,25 +1,27 @@
 <center>
-	<h1>Morning</h1>
+	<h1>Morning Text</h1>
 	<h3>FLATIRON SCHOOL</h3><br>
-
-	<h2>Word of the day</h2>
-	<%= @wotd.word %> - <%= @wotd.definition %><br>
 	
-	<h2>Quote</h2>
+	<%= form_tag("morning_app/text") do %>
+	<h2><input type="checkbox" name="wotd" value="1">Word of the day</h2>
+	<%= @wotd.word %> - <%= @wotd.definition %><br>
+
+	<h2><input type="checkbox" name="quote" value="2">Quote</h2>
 	"<%= @quote.content %>" <br> - <%= @quote.person%><br>
 	
-	<h2>Weather</h2>
+	<h2><input type="checkbox" name="weather" value="3">Weather</h2>
 	<%= @weather.location %><br>
 	<%= @weather.sky %> <%= @weather.temperature %>
 
 	<h2>Subway Status</h2>
+	<% i = 0 %>
 	<% @mta.subway_status.each do |subway, status| %>
-		<%= subway %> <%= status %><br>
+		<input type="checkbox" name="subway" value="<%=i%>"><%= subway %> <%= status %><br>
+		<% i += 1 %>
 	<% end %><br>
 
 	<%= flash[:success].html_safe unless flash[:success].blank? %>
 
-		<%= form_tag("morning_app/text") do %>
 		<%= label_tag("number", "Enter Phone Number: ") %>
 		<%= text_field_tag("number") %><br><br>
 
