@@ -3,20 +3,21 @@
 	<h3>FLATIRON SCHOOL</h3>
 
 	<%= form_tag("morning_app/text") do %>
-	<h2><input type="checkbox" name="wotd" value="1">Word of the day</h2>
-	<%= @wotd.word %> - <%= @wotd.definition %><br>
 
-	<h2><input type="checkbox" name="quote" value="2">Quote</h2>
+	<h2><input type="checkbox" name="wotd" value="<%= @wotd_text %>">Word of the day</h2>
+	<%= @wotd.word %> - <br> <%= @wotd.definition %><br>
+
+	<h2><input type="checkbox" name="quote" value="<%= @quote_text %>">Quote</h2>
 	"<%= @quote.content %>" <br> - <%= @quote.person%><br>
 	
-	<h2><input type="checkbox" name="weather" value="3">Weather</h2>
+	<h2><input type="checkbox" name="weather" value="<%= @weather_text %>">Weather</h2>
 	<%= @weather.location %><br>
 	<%= @weather.sky %> <%= @weather.temperature %>
 
 	<h2>Subway Status</h2>
-	<% i = 0 %>
+	<% i = 1 %>
 	<% @mta.subway_status.each do |subway, status| %>
-		<input type="checkbox" name="subway" value="<%=i%>"><%= subway %> <%= status %><br>
+		<input type="checkbox" name="<%= subway%>" value="<%= subway %> <%= status%> "><%= subway %> <%= status %><br>
 		<% i += 1 %>
 	<% end %><br>
 
