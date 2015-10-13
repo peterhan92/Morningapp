@@ -4,7 +4,7 @@
 	<h3>FLATIRON SCHOOL</h3><br>
 
 	<h2>Word of the day</h2>
-	<%= @wotd_display %><br>
+	<%= @wotd_text %><br>
 
 
 	<h2>Quote</h2>
@@ -14,7 +14,7 @@
 	<%= @weather.location %><br>
 	<%= @weather.sky %> <%= @weather.temperature %>
 	<h2>Subway Status</h2>
-	<% @mta.each do |statuses| %>
+	<% @mta.subway_status.each do |statuses| %>
 		<% statuses.each do |status| %>
 			<%= status%>
 		<% end %><br>
