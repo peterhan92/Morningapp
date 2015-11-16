@@ -70,3 +70,7 @@ form  {
 	overflow: auto;
 	padding-bottom: 100px;
 }
+
+input[type='text'] {
+  color: black!important;
+}
